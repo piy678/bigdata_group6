@@ -1,0 +1,16 @@
+services:
+  spark:
+    image: jupyter/pyspark-notebook:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - /c/Users/pinar/jars:/usr/local/spark/jars
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: start-notebook.sh --ServerApp.token=''
+  kafka:
+    image: apache/kafka:latest
+    ports:
+      - "9092:9092"
+    
